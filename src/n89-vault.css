@@ -92,7 +92,6 @@ body#shopTopPage .itemList .item.part .itemPrice{color:#C9A84C;font-family:var(-
 .nb-vaultbar-grid{display:grid;grid-template-columns:repeat(5,1fr);padding-top:14px}
 .nb-vaultbar-item{padding:12px 6px 14px;text-align:center;border-right:1px solid #C9A84C1A}
 .nb-vaultbar-item:last-child{border-right:none}
-.nb-vaultbar-icon{font-size:17px;margin-bottom:5px}
 .nb-vaultbar-label{color:#C9A84C;font-size:10px;font-family:var(--fj);font-weight:700;margin-bottom:2px;line-height:1.4}
 .nb-vaultbar-desc{color:#FFFFFF80;font-size:9px;font-family:var(--fj);line-height:1.5}
 @media(max-width:480px){.nb-vaultbar-grid{grid-template-columns:repeat(3,1fr)}.nb-vaultbar-item:nth-child(3){border-right:none}.nb-vaultbar-item:nth-child(4),.nb-vaultbar-item:nth-child(5){border-top:1px solid #C9A84C1A}}
@@ -373,7 +372,7 @@ body#shopDetailPage #purchase_form button:disabled,body#shopDetailPage .purchase
 .ab-catch-sub{font-family:var(--fm);font-size:13px;color:#F2EDE473;line-height:2.1;letter-spacing:1.5px;margin-bottom:36px;border-left:2px solid #C9A84C59;padding-left:18px;max-width:540px}
 .ab-three-box{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#C9A84C1A;border:1px solid #C9A84C26}
 .ab-three-item{background:#0E0E0E;padding:20px 18px;display:flex;flex-direction:column;gap:8px}
-.ab-three-icon{font-size:20px}
+.ab-three-icon{display:flex;align-items:center;height:26px}
 .ab-three-title{font-family:var(--fo);font-size:12px;letter-spacing:1px;color:#C9A84C;font-weight:600}
 .ab-three-text{font-size:11px;color:#F2EDE480;line-height:1.8}
 .ab-gold-line{width:100%;height:1px;background:linear-gradient(90deg,#C9A84C66,#C9A84C0D,transparent)}
@@ -386,7 +385,6 @@ body#shopDetailPage #purchase_form button:disabled,body#shopDetailPage .purchase
 .ab-shopselect-lead em{font-style:normal;color:#E8C96A}
 .ab-concern-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px}
 .ab-concern-item{background:#161616;border:1px solid #C9A84C14;padding:18px 20px;display:flex;align-items:flex-start;gap:12px}
-.ab-concern-q{font-size:18px;flex-shrink:0}
 .ab-concern-text{font-size:12px;color:#F2EDE48C;line-height:1.8}
 .ab-concern-text strong{color:#F2EDE4;display:block;margin-bottom:4px;font-size:13px}
 .ab-answer-box{background:#0E0B00;border:1px solid #C9A84C33;padding:28px 32px;position:relative;overflow:hidden}
@@ -427,13 +425,12 @@ body#shopDetailPage #purchase_form button:disabled,body#shopDetailPage .purchase
 .ab-legend-box-title::before{content:'★★★★★';font-size:14px;letter-spacing:1px}
 .ab-legend-methods{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px}
 .ab-legend-method{background:#C9A84C0D;border:1px solid #C9A84C26;padding:14px;text-align:center}
-.ab-legend-method-icon{font-size:22px;margin-bottom:6px}
+.ab-legend-method-icon{display:flex;align-items:center;justify-content:center;height:26px;margin-bottom:6px}
 .ab-legend-method-name{font-family:var(--fo);font-size:11px;font-weight:600;color:#E8C96A;letter-spacing:1px;margin-bottom:4px}
 .ab-legend-method-desc{font-size:10px;color:#F2EDE473;line-height:1.7}
 .ab-legend-note{font-size:11px;color:#F2EDE480;line-height:1.9;border-top:1px solid #C9A84C1A;padding-top:14px}
 .ab-legend-note strong{color:#C9A84C}
-.ab-price-box{margin-top:18px;background:#0E0B00;border:1px solid #C9A84C33;padding:22px 28px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}
-.ab-price-icon{font-size:26px;line-height:1}
+.ab-price-box{margin-top:18px;background:#0E0B00;border:1px solid #C9A84C33;padding:22px 28px;display:grid;grid-template-columns:1fr;gap:18px;align-items:start}
 .ab-price-title{font-family:var(--fm);font-size:14px;font-weight:600;color:#E8C96A;letter-spacing:2px;margin-bottom:8px}
 .ab-price-body{font-size:12px;color:#F2EDE499;line-height:1.9}
 .ab-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#C9A84C1F;border:1px solid #C9A84C1F}
@@ -518,3 +515,5 @@ body#shopDetailPage .nb-star-badge{font-size:11px;padding:5px 14px;margin:0 0 18
 body#shopDetailPage .nb-star-badge .nb-sb-stars{font-size:13px}
 body#shopDetailPage .nb-star-badge.nb-sb-5{animation:none}
 body#shopDetailPage .nb-star-badge.nb-sb-5::after{display:none}
+/* Phase 2 Step 3: 絵文字整理。装飾アイコンのコンテナ削除に伴い .nb-vaultbar-icon / .ab-concern-q / .ab-price-icon を除去。.ab-price-box はアイコン列が無くなるため1列化。金線SVG用に .ab-three-icon / .ab-legend-method-icon をflex化し、寸法は共通ルールで統一 */
+.ab-three-icon svg,.ab-legend-method-icon svg{display:block;width:24px;height:24px}
