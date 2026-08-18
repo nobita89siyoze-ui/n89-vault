@@ -513,3 +513,8 @@ body#shopDetailPage #purchase_form button:disabled,body#shopDetailPage .purchase
 body#shopDetailPage header h1.itemTitle{font-family:var(--fj)}
 body#shopDetailPage .itemPrice h2 .price__value{font-family:var(--fo)}
 body#shopDetailPage .itemPrice h2 .price__tax{font-family:var(--fj)}
+/* Phase 2 Step 2: 商品詳細ページのレアリティバッジ。既存 .nb-star-badge を再利用し、寸法のみ拡大。GRAIL の無限 pulse / sweep は購入ページでは停止する（一覧側は変更しない） */
+body#shopDetailPage .nb-star-badge{font-size:11px;padding:5px 14px;margin:0 0 18px;letter-spacing:.24em}
+body#shopDetailPage .nb-star-badge .nb-sb-stars{font-size:13px}
+body#shopDetailPage .nb-star-badge.nb-sb-5{animation:none}
+body#shopDetailPage .nb-star-badge.nb-sb-5::after{display:none}
