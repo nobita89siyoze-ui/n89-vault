@@ -509,3 +509,7 @@ body#shopDetailPage #purchase_form button:disabled,body#shopDetailPage .purchase
 @media(pointer:fine) and (min-width:769px){.nb-bx:hover .nb-bx-i{border-color:#E8C96A99}}
 @media(max-width:768px),(pointer:coarse){.nb-ex{padding:44px 0 28px}.nb-ex-d::before{content:"SWIPE TO EXPLORE"}.nb-ex-tr{perspective:none;gap:14px;padding:18px calc(50% - 32vw) 18px}.nb-bx,.nb-nx{width:64vw;max-width:290px;margin:0;z-index:auto}.nb-bx-m{opacity:1;transform:none}.nb-bx-i::after{background:#04040A8C}.nb-bx .nb-rarity-tag{opacity:1}.nb-bx-p{font-size:15px;margin-top:3px}.nb-bx-st{margin-top:4px}.nb-bx-v{display:block;margin-top:9px;padding:6px 0;border:none;background:none;border-top:1px solid #C9A84C26;letter-spacing:.16em}.nb-ex-r::after{display:none}}
 @media(prefers-reduced-motion:reduce){.nb-bx{transform:none!important;opacity:1!important}.nb-bx-i::after{background:#04040A00}.nb-bx-m{opacity:1;transform:none}.nb-ex-r::after,.nb-bx.nb-g.nb-c .nb-bx-i{animation:none}}
+/* Phase 2 Step 1: 商品詳細ページ 書体統一（商品名=--fj / 価格=--fo / 税込=--fj）。font-size・color・margin・line-height は変更しない */
+body#shopDetailPage header h1.itemTitle{font-family:var(--fj)}
+body#shopDetailPage .itemPrice h2 .price__value{font-family:var(--fo)}
+body#shopDetailPage .itemPrice h2 .price__tax{font-family:var(--fj)}
