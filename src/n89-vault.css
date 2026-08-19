@@ -564,3 +564,14 @@ body#shopDetailPage .nb-vaultbar-desc{font-size:11px}
 /* C. MEMBERS ONLY を後半唯一の PRIMARY に。新色・新グラデは足さず、Hero の PRIMARY（.nb-vault-cta-main）と同一の金グラデと同一の影の値を再利用する。ページ冒頭の「商品を見る」PRIMARY と後半の「会員登録」PRIMARY が同じ質感で対になる。サイズ（padding 16px 48px / font-size 15px）は変更しないので巨大化はしない */
 .nb-member-v3-cta{background:linear-gradient(135deg,#E8C96A 0%,#C9A84C 60%,#A8873A 100%);box-shadow:0 8px 30px #C9A84C40;transition:transform .3s,box-shadow .3s}
 .nb-member-v3-cta:hover{background:linear-gradient(135deg,#E8C96A 0%,#C9A84C 60%,#A8873A 100%);color:#080808;transform:translateY(-2px);box-shadow:0 12px 40px #C9A84C66}
+/* Phase 5-4 施策1 TRUST VAULT ON DESKTOP。PC の商品詳細では .purchase が 280px 固定のため、5列グリッドの1セルは内容幅 43.6px しかなく、9px でも「公式ルート仕入れ」「再シュリンクなし」など10テキスト中9件が折り返していた。小さいのではなく割れていた。2列にすると内容幅 127px となり、SP と同じ 12px / 11px で全テキストが1行に収まる。5番目（迅速発送）は行が余るので全幅に伸ばす。右カラムは約104px 伸びるが、左カラムは画像400px＋商品説明があり元々背が高いので左右バランスはむしろ改善する。PC 専用スコープなので SP・タブレットには一切影響しない */
+@media(min-width:769px){
+body#shopDetailPage .nb-vaultbar-grid{grid-template-columns:repeat(2,1fr)}
+body#shopDetailPage .nb-vaultbar-item:nth-child(2n){border-right:none}
+body#shopDetailPage .nb-vaultbar-item:nth-child(n+3){border-top:1px solid #C9A84C1A}
+body#shopDetailPage .nb-vaultbar-item:nth-child(5){grid-column:1/-1}
+body#shopDetailPage .nb-vaultbar-label{font-size:12px}
+body#shopDetailPage .nb-vaultbar-desc{font-size:11px}
+}
+/* Phase 5-4 施策2 PURCHASE BUTTON LEGIBILITY。BASE テンプレート側の .purchaseButton__btn は font-size:12px / padding:14px 0 で、高さが約42px。10万円超の商品の主行動としては文字が小さく、数量ラベル(14px)より小さいという逆転もあった。さらに42pxは iOS のタップ目標44pxをわずかに下回る。16px / padding:16px 0 にして高さ約51pxとし、タップ領域と可読性を同時に満たす。色・背景・角丸・hover は既存のまま触らない。セレクタは BASE 側と同じ形（詳細度 2,2,1）で後置しているので !important は不要 */
+body#shopDetailPage #purchase_form .purchaseButton .purchaseButton__btn{font-size:16px;padding:16px 0}
