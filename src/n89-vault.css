@@ -547,3 +547,10 @@ body#shopDetailPage .nb-vaultbar-desc{font-size:11px}
 .nb-pop-note{font-size:12px}
 .nb-rv-disclaimer{font-size:11px}
 }
+/* Phase 5-2 MOTION BUDGET。常時ループするアニメーションを 15→9 に削減する。判定は「止まっている方が高級に見えるか」と「合成レイヤー外のプロパティを毎フレーム再計算していないか」の2点。box-shadow / background-position / top / left を動かしていた4件と、reduced-motion で止まらなかった3件（shimmer・pulse・nbExRail）を停止。nbExRail は reduced-motion 側の .nb-ex-r::after が詳細度(0,1,1)で .nb-ex.nb-in .nb-ex-r::after (0,3,1) に負けていたため、同詳細度の後続ルールで確実に止める。静的な装飾（GRAILの金枠と発光、ABOUTのグラデ文字と金点、全画面のアンビエント光、NEXT DROPの枠、EXPLOREの金レール）はすべて残すので情報量は変わらない。@keyframes 定義・JS・HTML は一切変更しない */
+.nb-star-badge.nb-sb-5{animation:none}
+.ab-catch em{animation:none}
+.ads.legend{animation:none}
+.nb-amb{animation:none}
+.nb-drop-hero.nb-in::after{display:none}
+.nb-ex.nb-in .nb-ex-r::after{display:none}
