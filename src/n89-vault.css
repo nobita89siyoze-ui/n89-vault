@@ -554,3 +554,13 @@ body#shopDetailPage .nb-vaultbar-desc{font-size:11px}
 .nb-amb{animation:none}
 .nb-drop-hero.nb-in::after{display:none}
 .nb-ex.nb-in .nb-ex-r::after{display:none}
+/* Phase 5-3 MEMBERSHIP CTA HIERARCHY。TOPページ後半で https://nobita89siyo.base.shop/membership を指す CTA が3連続していた（.nb-drop-hero-cta / .nb-drop-close-cta / .nb-member-v3-cta）。3つとも href・機能ともに完全に同一で、メルマガ登録フォームは存在しない（TOPページに input[type=email] は0件）。しかも最終CTAである .nb-member-v3-cta が単色かつ box-shadow なしで視覚的に最も弱く、途中の .nb-drop-close-cta が最も強いという逆転が起きていた。役割を DISCOVER→DESIRE→PRIVATE ACCESS→MEMBERSHIP の一本に整理する */
+/* A. THE NEXT DROP の CTA を SECONDARY へ。金面をやめ outline に落とす。境界は border ではなく inset box-shadow なので寸法は 1px も変わらない。白いシャイン ::after は塗り面のための演出なので outline では消す（transition が1つ減る） */
+.nb-drop-hero-cta{background:none;color:#E8C96A;box-shadow:inset 0 0 0 1px #C9A84C8C}
+.nb-drop-hero-cta:hover{transform:none;color:#E8C96A;box-shadow:inset 0 0 0 1px #E8C96A}
+.nb-drop-hero-cta::after{display:none}
+/* B. PRIVATE ACCESS の CTA を撤去。直下の MEMBERS ONLY と同一URL・同一機能で、しかも見出しと本文だけで transition として成立する。コピー（完売前の情報は、会員から先に届く。）はそのまま残す。.nb-drop-close-s の margin-bottom:24px は詰めずに残し、VAULT の静けさを維持する */
+.nb-drop-close-cta{display:none}
+/* C. MEMBERS ONLY を後半唯一の PRIMARY に。新色・新グラデは足さず、Hero の PRIMARY（.nb-vault-cta-main）と同一の金グラデと同一の影の値を再利用する。ページ冒頭の「商品を見る」PRIMARY と後半の「会員登録」PRIMARY が同じ質感で対になる。サイズ（padding 16px 48px / font-size 15px）は変更しないので巨大化はしない */
+.nb-member-v3-cta{background:linear-gradient(135deg,#E8C96A 0%,#C9A84C 60%,#A8873A 100%);box-shadow:0 8px 30px #C9A84C40;transition:transform .3s,box-shadow .3s}
+.nb-member-v3-cta:hover{background:linear-gradient(135deg,#E8C96A 0%,#C9A84C 60%,#A8873A 100%);color:#080808;transform:translateY(-2px);box-shadow:0 12px 40px #C9A84C66}
