@@ -517,3 +517,18 @@ body#shopDetailPage .nb-star-badge.nb-sb-5::after{display:none}
 .ab-three-icon svg,.ab-legend-method-icon svg{display:block;width:24px;height:24px}
 /* Phase 4 施策1: THE VAULT GALLERY。ARCHIVE NO. を hover依存/PC非表示から常時表示の展示ラベルへ。商品一覧カードの conic 回転枠を撤去し、暗闇・余白・細い金線・番号を主役にする */
 @media(max-width:600px){[data-nbarc]::before{height:23px;line-height:23px;font-size:8px;letter-spacing:.18em;padding:0 8px}body#shopTopPage .itemList .item.part{padding:24px 10px 16px}}
+/* Phase 4 施策3: THE ACQUISITION MOMENT。商品名の上に N89 VAULT ARCHIVE / LOT DETAIL、購入エリアの上に PRIVATE ACQUISITION。768px以下では .item を display:contents にして #mainContent の flex 直下へ引き上げ、商品説明を購入ブロックの後段へ回す（DOM順序・BASEタグは不変） */
+body#shopDetailPage header::before{content:"N89 VAULT ARCHIVE";display:block;font-family:var(--fo);font-size:8px;letter-spacing:.4em;color:#FFFFFF40;margin:0 0 5px}
+body#shopDetailPage header h1.itemTitle::before{content:"LOT DETAIL";display:block;font-family:var(--fo);font-size:9px;letter-spacing:.24em;color:#C9A84C8C;padding-bottom:7px;margin-bottom:11px;border-bottom:1px solid #C9A84C1F}
+body#shopDetailPage .purchase::before{content:"PRIVATE ACQUISITION";display:block;font-family:var(--fo);font-size:8px;letter-spacing:.3em;color:#C9A84C73;margin-bottom:10px}
+@media(max-width:768px){
+body#shopDetailPage #mainContent{display:flex;flex-direction:column}
+body#shopDetailPage header::before{margin-top:18px}
+body#shopDetailPage #mainContent>header{order:1}
+body#shopDetailPage #mainContent>.item{display:contents;order:2}
+body#shopDetailPage #mainContent>.item::after{display:none}
+body#shopDetailPage #mainContent .itemImg{order:2}
+body#shopDetailPage #mainContent>.purchase{order:3}
+body#shopDetailPage #mainContent .itemDescription{order:4}
+body#shopDetailPage #mainContent>.nb-rvapp{order:5}
+}
